@@ -1,4 +1,5 @@
 <script setup>
+import PlanningListItem from "./PlanningListItem.vue";
 import { useAttractionStore } from "@/stores/attraction";
 const store = useAttractionStore();
 const attractions = store.attractions;

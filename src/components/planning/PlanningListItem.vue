@@ -1,4 +1,5 @@
 <script setup>
+import { mdiOpenInNew } from "@mdi/js";
 defineProps({
   attraction: {
     type: Object,
@@ -30,7 +31,8 @@ defineProps({
 
 <template>
   <v-card
-    append-icon="mdi-open-in-new"
+    :append-icon="mdiOpenInNew"
+    :image="attraction.img"
     class="mx-auto"
     max-width="344"
     :subtitle="attraction.location"

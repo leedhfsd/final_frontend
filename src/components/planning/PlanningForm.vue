@@ -1,8 +1,10 @@
-<script setup></script>
+<script setup>
+import { mdiMagnify } from "@mdi/js";
+</script>
 
 <template>
   <div>
-    <v-text-field focused append-icon="mdi-magnify"></v-text-field>
+    <v-text-field focused> </v-text-field>
   </div>
 </template>
 

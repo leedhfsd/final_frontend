@@ -1,22 +1,26 @@
 <script setup>
+import PlanningList from "@/components/planning/PlanningList.vue";
+import PlanningForm from "@/components/planning/PlanningForm.vue";
 import { ref } from "vue";
-const links = ref(["추천 여행지", "여행", "리뷰", "Updates"]);
-const items = ref([
-  { title: "Click Me" },
-  { title: "Click Me 1" },
-  { title: "Click Me 2" },
-  { title: "Click Me 3" },
-]);
+const links = ref(["Dashboard", "Messages", "Profile", "Updates"]);
 </script>
 
 <template>
   <v-app id="inspire">
     <v-app-bar flat>
       <v-container class="mx-auto d-flex align-center justify-center">
-        <v-btn text="마이트립"
-          ><v-avatar class="me-4" color="grey-darken-1" size="32"></v-avatar
+        <v-avatar class="me-4" color="grey-darken-1" size="32"></v-avatar>
+
+        <v-btn
+          v-for="link in links"
+          :key="link"
+          :text="link"
+          variant="text"
         ></v-btn>
-        <v-responsive max-width="240">
+
+        <v-spacer></v-spacer>
+
+        <v-responsive max-width="160">
           <v-text-field
             density="compact"
             label="Search"
@@ -27,17 +31,6 @@ const items = ref([
             single-line
           ></v-text-field>
         </v-responsive>
-
-        <v-spacer></v-spacer>
-        <v-btn
-          v-for="link in links"
-          :key="link"
-          :text="link"
-          variant="text"
-        ></v-btn>
-        <v-btn>
-          <v-avatar class="me-4" color="grey-darken-1" size="32"> </v-avatar>
-        </v-btn>
       </v-container>
     </v-app-bar>
 
