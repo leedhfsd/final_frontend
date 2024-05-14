@@ -1,36 +1,27 @@
-<script setup>
-	import PlanningList from "@/components/planning/PlanningList.vue";
-	import PlanningForm from "@/components/planning/PlanningForm.vue";
-	import { ref } from "vue";
-	const links = ref(["Dashboard", "Messages", "Profile", "Updates"]);
-</script>
+<script setup></script>
 
 <template>
-	<v-app id="inspire">
-		<v-main class="bg-grey-lighten-3">
-			<v-container>
-				<v-row>
-					<v-col cols="2">
-						<v-sheet rounded="lg">
-							<v-list rounded="lg">
-								<v-list-item v-for="n in 5" :key="n" :title="`List Item ${n}`" link></v-list-item>
+	<v-container>
+		<v-row>
+			<v-col cols="2">
+				<v-sheet rounded="lg">
+					<v-list rounded="lg">
+						<v-list-item v-for="n in 5" :key="n" :title="`List Item ${n}`" link></v-list-item>
 
-								<v-divider class="my-2"></v-divider>
+						<v-divider class="my-2"></v-divider>
 
-								<v-list-item color="grey-lighten-4" title="Refresh" link></v-list-item>
-							</v-list>
-						</v-sheet>
-					</v-col>
+						<v-list-item color="grey-lighten-4" title="Refresh" link></v-list-item>
+					</v-list>
+				</v-sheet>
+			</v-col>
 
-					<v-col>
-						<v-sheet min-height="70vh" rounded="lg">
-							<!--  -->
-						</v-sheet>
-					</v-col>
-				</v-row>
-			</v-container>
-		</v-main>
-	</v-app>
+			<v-col>
+				<v-sheet min-height="70vh" rounded="lg">
+					<!--  -->
+				</v-sheet>
+			</v-col>
+		</v-row>
+	</v-container>
 </template>
 
 <style scoped></style>

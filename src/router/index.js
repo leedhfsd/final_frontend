@@ -1,8 +1,9 @@
 import HomeView from "@/views/HomeView.vue";
-import PlanningView from "@/views/PlanningView.vue";
+import PlanningListView from "@/views/PlanningListView.vue";
 import RecommendView from "@/views/RecommendView.vue";
 import LoginView from "@/views/LoginView.vue";
 import JoinView from "@/views/JoinView.vue";
+import ReviewView from "@/views/ReviewView.vue";
 
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -25,6 +26,11 @@ const router = createRouter({
 			component: RecommendView,
 		},
 		{
+			path: "/review",
+			name: "review",
+			component: ReviewView,
+		},
+		{
 			path: "/login",
 			name: "login",
 			component: LoginView,
@@ -36,6 +42,12 @@ const router = createRouter({
 			// this generates a separate chunk (About.[hash].js) for this route
 			// which is lazy-loaded when the route is visited.
 			component: () => import("../views/PlanningView.vue"),
+			children: [
+				{
+					path: "/planning/:id",
+					name: "PlanningListView",
+				},
+			],
 		},
 	],
 });

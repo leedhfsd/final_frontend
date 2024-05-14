@@ -12,6 +12,10 @@
 			link: "/planning",
 		},
 		{
+			menu: "리뷰",
+			link: "/review",
+		},
+		{
 			menu: "로그인",
 			link: "/login",
 		},
@@ -30,7 +34,7 @@
 	<v-app id="inspire">
 		<v-app-bar flat>
 			<v-container class="mx-auto d-flex align-center justify-center">
-				<v-btn :to="'/'" :color="success">
+				<v-btn :to="'/'" class="mr-4" color="">
 					<v-avatar class="me-4" color="grey-darken-1" size="32"></v-avatar>
 					마이트립
 				</v-btn>
@@ -68,13 +72,5 @@
 		background-color: transparent !important;
 		box-shadow: none !important;
 		transition: background-color 0.3s ease !important;
-	}
-
-	.v-btn:hover {
-		background-color: transparent !important;
-	}
-	.v-btn--active {
-		background-color: transparent !important;
-		box-shadow: none !important;
 	}
 </style>
