@@ -1,6 +1,4 @@
 <script setup>
-	import PlanningList from "@/components/planning/PlanningList.vue";
-	import PlanningForm from "@/components/planning/PlanningForm.vue";
 	import { ref } from "vue";
 	const links = ref(["Dashboard", "Messages", "Profile", "Updates"]);
 </script>
