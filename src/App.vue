@@ -1,79 +1,80 @@
 <script setup>
-import { ref } from "vue";
-const links = ref(["추천 여행지", "여행", "리뷰", "Updates"]);
-const items = ref([
-  { title: "Click Me" },
-  { title: "Click Me 1" },
-  { title: "Click Me 2" },
-  { title: "Click Me 3" },
-]);
+	import { ref } from "vue";
+	import { mdiMagnify } from "@mdi/js";
+	import router from "./router";
+	const links = ref([
+		{
+			menu: "추천 여행지",
+			link: "/recommend",
+		},
+		{
+			menu: "일정",
+			link: "/planning",
+		},
+		{
+			menu: "로그인",
+			link: "/login",
+		},
+		{
+			menu: "회원 가입",
+			link: "/join",
+		},
+	]);
+
+	const navigateToSearch = () => {
+		router.push("/");
+	};
 </script>
 
 <template>
-  <v-app id="inspire">
-    <v-app-bar flat>
-      <v-container class="mx-auto d-flex align-center justify-center">
-        <v-btn text="마이트립"
-          ><v-avatar class="me-4" color="grey-darken-1" size="32"></v-avatar
-        ></v-btn>
-        <v-responsive max-width="240">
-          <v-text-field
-            density="compact"
-            label="Search"
-            rounded="lg"
-            variant="solo-filled"
-            flat
-            hide-details
-            single-line
-          ></v-text-field>
-        </v-responsive>
+	<v-app id="inspire">
+		<v-app-bar flat>
+			<v-container class="mx-auto d-flex align-center justify-center">
+				<v-btn :to="'/'" :color="success">
+					<v-avatar class="me-4" color="grey-darken-1" size="32"></v-avatar>
+					마이트립
+				</v-btn>
+				<v-responsive max-width="360">
+					<v-text-field
+						density="compact"
+						label="여행지 검색.."
+						rounded="lg"
+						variant="solo-filled"
+						flat
+						hide-details
+						single-line
+						:prepend-inner-icon="mdiMagnify"
+						@click:prepend-inner="navigateToSearch"
+					></v-text-field>
+				</v-responsive>
 
-        <v-spacer></v-spacer>
-        <v-btn
-          v-for="link in links"
-          :key="link"
-          :text="link"
-          variant="text"
-        ></v-btn>
-        <v-btn>
-          <v-avatar class="me-4" color="grey-darken-1" size="32"> </v-avatar>
-        </v-btn>
-      </v-container>
-    </v-app-bar>
-
-    <v-main class="bg-grey-lighten-3">
-      <v-container>
-        <v-row>
-          <v-col cols="2">
-            <v-sheet rounded="lg">
-              <v-list rounded="lg">
-                <v-list-item
-                  v-for="n in 5"
-                  :key="n"
-                  :title="`List Item ${n}`"
-                  link
-                ></v-list-item>
-
-                <v-divider class="my-2"></v-divider>
-
-                <v-list-item
-                  color="grey-lighten-4"
-                  title="Refresh"
-                  link
-                ></v-list-item>
-              </v-list>
-            </v-sheet>
-          </v-col>
-
-          <v-col>
-            <v-sheet min-height="70vh" rounded="lg">
-              <!--  -->
-            </v-sheet>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-main>
-  </v-app>
+				<v-spacer></v-spacer>
+				<v-btn v-for="link in links" :key="link.menu" :to="link.link" text variant="text">
+					{{ link.menu }}
+				</v-btn>
+				<v-btn>
+					<v-avatar class="me-4" color="grey-darken-1" size="32"> </v-avatar>
+				</v-btn>
+			</v-container>
+		</v-app-bar>
+		<v-main class="bg-grey-lighten-3">
+			<router-view />
+		</v-main>
+	</v-app>
 </template>
 
-<style scoped></style>
+<style scoped>
+	.v-btn {
+		background-color: transparent !important;
+		box-shadow: none !important;
+		transition: background-color 0.3s ease !important;
+	}
+
+	.v-btn:hover {
+		background-color: transparent !important;
+	}
+	.v-btn--active {
+		background-color: transparent !important;
+		box-shadow: none !important;
+	}
+</style>
