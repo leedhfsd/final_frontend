@@ -33,17 +33,17 @@
 </script>
 
 <template>
-	<v-card class="mx-auto">
-		<v-img class="align-end text-white" height="150" :src="attraction.firstImage" cover>
-			<v-card-title>{{ attraction.title }}</v-card-title>
-		</v-img>
-
+	<v-card class="mx-auto" max-width="344">
+		<v-img class="align-end text-white" height="200" :src="attraction.firstImage" cover> </v-img>
+		<v-card-title
+			><strong>{{ attraction.title }}</strong></v-card-title
+		>
 		<v-card-subtitle class="pt-4">
-			<span style="color: #50d4e5">{{ attraction.contentTypeId }}</span>
-			<span style="color: #88929c">{{ attraction.addr1 }}</span>
+			<span style="color: #50d4e5; margin-right: 12px">{{ attraction.contentTypeId }}</span>
+			<span>{{ attraction.addr1 }}</span>
 		</v-card-subtitle>
 
-		<v-card-text style="height: 100px">
+		<v-card-text style="height: 75px">
 			<div style="overflow: hidden; text-overflow: ellipsis">
 				{{ attraction.description }}
 			</div>
@@ -51,7 +51,7 @@
 
 		<v-card-actions>
 			<v-btn :prepend-icon="mdiHeart" color="#ff4081" :text="attraction.like"></v-btn>
-			<v-btn :prepend-icon="mdiStar" color="#fcba03" :text="attraction.rating"></v-btn>
+			<v-btn :prepend-icon="mdiStar" color="#0096C7" :text="attraction.rating"></v-btn>
 		</v-card-actions>
 	</v-card>
 </template>
