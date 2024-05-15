@@ -1,9 +1,11 @@
 <script setup>
-import { mdiHeart, mdiStar } from "@mdi/js";
-defineProps({
+import { defineProps } from "vue";
+import { mdiHeart, mdiStarOutline, mdiStar, mdiStarHalfFull } from "@mdi/js";
+
+const props = defineProps({
   attraction: {
     type: Object,
-    reuqired: true,
+    required: true,
     id: {
       type: Number,
     },
@@ -33,50 +35,41 @@ defineProps({
 </script>
 
 <template>
-  <v-card class="mx-auto" max-width="344">
-    <v-img
-      class="align-end text-white"
-      height="200"
-      :src="attraction.firstImage"
-      cover
-    >
+  <v-card>
+    <v-img :src="props.attraction.firstImage" height="200px">
+      <v-btn icon small class="position-absolute top-0 right-0">
+        <v-icon :icon="mdiHeart"></v-icon>
+      </v-btn>
     </v-img>
-    <v-card-title
-      ><strong>{{ attraction.title }}</strong></v-card-title
-    >
-    <v-card-subtitle class="pt-4">
-      <span style="color: #50d4e5; margin-right: 12px">{{
-        attraction.contentTypeId
-      }}</span>
-      <span>{{ attraction.addr1 }}</span>
+    <v-card-title>{{ props.attraction.title }}</v-card-title>
+    <v-card-subtitle class="pb-0">
+      {{ props.attraction.description }}
     </v-card-subtitle>
-
-    <v-card-text style="height: 75px">
-      <div style="overflow: hidden; text-overflow: ellipsis">
-        {{ attraction.description }}
-      </div>
+    <v-card-text class="d-flex align-center">
+      <v-rating
+        :value="parseFloat(props.attraction.rating)"
+        :empty-icon="mdiStarOutline"
+        :full-icon="mdiStar"
+        :half-icon="mdiStarHalfFull"
+        color="primary"
+        density="compact"
+        size="15"
+        half-increments
+        readonly
+      ></v-rating>
+      <span class="text-body-2 ml-2">{{ props.attraction.rating }}</span>
     </v-card-text>
-
-    <v-card-actions>
-      <v-btn
-        :prepend-icon="mdiHeart"
-        color="#ff4081"
-        :text="attraction.like"
-      ></v-btn>
-      <v-btn
-        :prepend-icon="mdiStar"
-        color="#0096C7"
-        :text="attraction.rating"
-      ></v-btn>
-    </v-card-actions>
+    <v-card-text>
+      {{ props.attraction.addr1 }}
+    </v-card-text>
   </v-card>
 </template>
 
 <style scoped>
-div {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
+.v-card {
+  position: relative;
+}
+.v-btn {
+  background-color: white;
 }
 </style>
