@@ -1,9 +1,20 @@
 <script setup>
 import { ref } from "vue";
-const userInfo = ref({
+const loginUser = ref({
   id: null,
   password: null,
 });
+
+// const login = async () => {
+// 	await userLogin(loginUser.value);
+// 	let token = sessionStorage.getItem("accessToken");
+// 	console.log(token);
+// 	if (!isLogin.value) {
+// 		getUserInfo(token);
+// 		changeMenuState();
+// 		router.replace("/")
+// 	}
+// }
 </script>
 
 <template>
