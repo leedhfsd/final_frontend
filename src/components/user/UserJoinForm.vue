@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import { mdiChevronRight } from "@mdi/js";
 
 // 규칙 추가 하기
 // https://vuetifyjs.com/en/components/forms/#fast-fail
@@ -22,21 +23,21 @@ const userInfo = ref({
           :v-model="userInfo.id"
           color="primary"
           label="아이디"
-          variant="underlined"
+          variant="outlined"
         ></v-text-field>
 
         <v-text-field
           :v-model="userInfo.nickname"
           color="primary"
           label="닉네임"
-          variant="underlined"
+          variant="outlined"
         ></v-text-field>
 
         <v-text-field
           :v-model="userInfo.email"
           color="primary"
           label="Email"
-          variant="underlined"
+          variant="outlined"
         ></v-text-field>
 
         <v-text-field
@@ -44,7 +45,7 @@ const userInfo = ref({
           color="primary"
           label="비밀번호"
           placeholder="비밀번호를 입력해주세요.."
-          variant="underlined"
+          variant="outlined"
         ></v-text-field>
 
         <v-text-field
@@ -52,7 +53,7 @@ const userInfo = ref({
           color="primary"
           label="비밀번호 확인"
           placeholder="동일한 비밀번호를 입력해주세요.."
-          variant="underlined"
+          variant="outlined"
         ></v-text-field>
 
         <v-checkbox
@@ -66,11 +67,9 @@ const userInfo = ref({
 
       <v-card-actions>
         <v-spacer></v-spacer>
-
-        <v-btn color="success">
+        <v-btn color="primary">
           회원가입
-
-          <v-icon icon="mdi-chevron-right" end></v-icon>
+          <v-icon :icon="mdiChevronRight" end></v-icon>
         </v-btn>
       </v-card-actions>
     </v-card>

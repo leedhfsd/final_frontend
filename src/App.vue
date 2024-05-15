@@ -47,7 +47,7 @@ const navigateToSearch = () => {
             density="compact"
             label="여행지 검색.."
             rounded="lg"
-            variant="solo-filled"
+            variant="outlined"
             flat
             hide-details
             single-line
