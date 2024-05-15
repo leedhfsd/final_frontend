@@ -1,7 +1,9 @@
-<script setup></script>
+<script setup>
+import UserJoinForm from "@/components/user/UserJoinForm.vue";
+</script>
 
 <template>
-	<div></div>
+  <user-join-form />
 </template>
 
 <style scoped></style>

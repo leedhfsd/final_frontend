@@ -29,7 +29,7 @@ export const usePlanningStore = defineStore("planning", () => {
         plan_id: "1",
         user_id: "test1",
         title: "여행 일정입니다.",
-        update_date: now(),
+        update_date: "2024-05-15",
         plan_detail: [
           {
             plan_day: 1,

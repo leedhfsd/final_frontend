@@ -1,7 +1,9 @@
-<script setup></script>
+<script setup>
+import UserLoginForm from "@/components/user/UserLoginForm.vue";
+</script>
 
 <template>
-	<div></div>
+  <user-login-form />
 </template>
 
 <style scoped></style>
