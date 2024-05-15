@@ -5,6 +5,7 @@ export const useUserStore = defineStore("user", () => {
   const user = ref({
     userInfo: "아이디",
     nickname: "닉네임",
+    profileImage: "이미지",
   });
   const checkDuplication = () => {};
   const joinUser = () => {};
